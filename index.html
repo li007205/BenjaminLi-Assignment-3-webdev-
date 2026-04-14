@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color By Numbers</title>
+    <link rel="stylesheet" href="assignment2.css">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="assignment2.js" defer></script>
+</head>
+<body>
+    <div class="layout">
+    <header class="box header">
+      <div></div>
+      <h1 id="title">Canvas - 0%</h1>
+      <button id="settings-button"><img id="settings-image" src="images/SettingsIcon.png" alt="A pixel art cog wheel"></button>
+    </header>
+
+
+    <main class="box main">
+      <div id="puzzle-grid"></div>
+    </main>
+
+    <aside class="box aside">
+      <div id="top-half-aside">
+        <h2>Puzzles</h2>
+        <div id="puzzle-list"></div>
+      </div>
+      <div id="bottom-half-aside">
+        <h2>Colors</h2>
+        <div id="color-selector"></div>
+      </div>
+    </aside>
+
+
+
+    <!--The following div holds all the images. It will be hidden to the user, just there for javascript to get image data.-->
+    <div hidden>
+      <canvas id="hidden-canvas"></canvas>
+      <img src="images/Canvas.png" id ="Canvas" alt="A pixel art representation of a canvas with paint on">
+      <img src="images/SakuraCherryBlossoms.png" id ="Blossoms" alt="A pixel art representation of cherry blossoms">
+      <img src="images/Sunset.png" id ="Sunset" alt="A pixel art representation of a sunset">
+      <img src="images/Knight.png" id ="Knight" alt="A pixel art representation of knight">
+      <img src="images/Train.png" id ="Train" alt="A pixel art representation of a train">
+      <img src="images/Island.png" id="Island" alt="A pixel art representation of an island">
+    </div>
+
+    <!--This dialog is used to show the settings menu.-->
+    <dialog>
+      <div id="popup">
+        <div id="top-line">
+          <div style="width:32px;"></div>
+          <h2>Settings</h2>
+          <button id="close">
+            <img src="images/CloseButton.png" alt="A pixel art x" id="close-image">
+          </button>
+        </div>
+        <h3>Color Palettes</h3>
+        <div id="palette-buttons">
+          <button id="default-palette">Default</button>
+          <button id="light-palette">Light</button>
+          <button id="dark-palette">Dark</button>
+        </div>
+        <button id="reset-button">Reset Puzzle</button>
+      </div>
+    </dialog>
+  </div>
+</body>
+</html>

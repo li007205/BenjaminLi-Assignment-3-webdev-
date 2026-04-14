@@ -1,0 +1,320 @@
+:root {
+  --font-color: #ffffff;
+  --main-bg-color: #363d66;
+  --second-bg-color: #040c40;
+  --border-color: #1d2453;
+  --cell-bg-color: #c8c8c8;
+  --cell-border-color: #969696;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  user-select: none;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--second-bg-color);
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.layout {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+
+  grid-template-columns: 0.25fr 1fr 1fr;
+  grid-template-rows: 0.25fr 3fr;
+
+  grid-template-areas:
+    "aside header header"
+    "aside main main"
+}
+
+.box {
+  color: var(--font-color);
+  padding: 2% 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
+
+.header {
+  grid-area: header;
+  background: var(--second-bg-color);
+  justify-content: space-between;
+}
+
+.main {
+  grid-area: main;
+  border-top: solid 10px var(--border-color);
+  border-left: solid 10px var(--border-color);
+  background: var(--main-bg-color);
+}
+
+.aside {
+  grid-area: aside;
+  flex-direction:column;
+  background: var(--second-bg-color);
+  row-gap: 10%;
+}
+
+#puzzle-grid {
+  max-height: 497.9px;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  border: solid 10px var(--border-color);
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.grid-cell {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cell-bg-color);
+  border: 1px solid var(--cell-border-color);
+  box-sizing: border-box;  
+  cursor: pointer;
+}
+
+#puzzle-list {
+  display: grid;
+  row-gap: 5px;
+  grid-template-rows: auto auto auto auto auto auto;
+  margin-top: 5px;
+}
+
+#puzzle-list button{
+  width: 100px;
+  border-radius: 10px;
+  border: solid 2px var(--border-color);
+  background-color: var(--main-bg-color);
+  color: var(--font-color);
+  cursor: pointer; 
+}
+
+
+#puzzle-list button:hover {
+  border: solid 2px var(--font-color);
+  text-decoration: underline;
+}
+
+#color-selector {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+#color-selector button {
+  border: solid 2px var(--border-color);
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+#color-selector button.selected {
+  border-color: var(--font-color);
+}
+
+#color-selector button:hover {
+  cursor:pointer;
+  border-color: var(--font-color);
+  text-decoration: underline;
+}
+
+#settings-button {
+  background-color: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+#settings-button:hover {
+  cursor: pointer;
+  border: 2px solid var(--font-color);
+  border-radius: 10px;
+}
+
+#settings-button img {
+  image-rendering: pixelated;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 899px) {
+  .main {
+    border-left: 0px;
+    border-bottom: solid 10px var(--border-color);
+  }
+
+  .layout {
+    grid-template-areas: 
+      "header header header"
+      "main main main"
+      "aside aside aside";
+  }
+
+  #puzzle-grid {
+    max-width: 331.475px;
+    max-height: 331.475px;
+  }
+
+  .aside {
+    flex-direction: row;
+    gap: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  #puzzle-list {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 5px;
+  }
+
+  #bottom-half-aside {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 499px) {
+  #puzzle-grid {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .aside {
+    gap: 5%;
+  }
+}
+
+dialog {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border:none;
+  background: none;
+  color: var(--font-color);
+  user-select: none;
+}
+
+#popup {
+  width:300px;
+  height:200px;
+  background-color: var(--main-bg-color);
+  text-align: center;
+  border: 10px solid var(--border-color);
+}
+
+dialog[open] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#close {
+  background-color: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  padding:2px;
+  margin:8px;
+  text-align: right;
+}
+
+#close:hover {
+  cursor: pointer;
+  border: 2px solid var(--font-color);
+}
+
+#close img {
+  image-rendering: pixelated;
+  width: 100%;
+  height: auto;
+}
+
+#top-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+#top-line h2 {
+  text-align: center;
+}
+
+#palette-buttons{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#reset-button {
+  width: 100px;
+  border-radius: 10px;
+  border: solid 2px var(--second-bg-color);
+  background-color: var(--main-bg-color);
+  color: var(--font-color);
+  cursor: pointer; 
+}
+
+#reset-button:hover {
+  border-color: var(--font-color);
+  text-decoration: underline;
+}
+
+#default-palette {
+  width:50px;
+  height:50px;
+  border-radius: 5px;
+  color: white;
+  background-color: #363d66;
+  border: solid 2px #1d2453;
+}
+
+#default-palette:hover {
+  border-color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#light-palette {
+  width:50px;
+  height:50px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  border: solid 2px #969696;
+}
+
+#light-palette:hover {
+  border-color: black;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#dark-palette {
+  width:50px;
+  height:50px;
+  border-radius: 5px;
+  color: white;
+  background-color: #181C14;
+  border: solid 2px black;
+}
+
+#dark-palette:hover {
+  border-color: white;
+  cursor:pointer;
+  text-decoration: underline;
+}
