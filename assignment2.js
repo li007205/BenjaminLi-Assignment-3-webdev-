@@ -1,6 +1,9 @@
+import { createColorList, current_colors, selected_color, setSelectedColor } from "./colorList.js";
+import { convertCoordsToIndex } from "./utilities.js";
+
 let loaded_puzzle = 0; //index of the current puzzle we have loaded
-let current_colors = new Set(); //set of rgba color strings in the loaded image
-let selected_color = '';
+//export let current_colors = new Set(); //set of rgba color strings in the loaded image
+// let selected_color = '';
 
 //find whether the mouse is currently held down
 //this will be used to drag over multiple cells, rather than having to click one-by-one
@@ -87,9 +90,6 @@ function createGrid() {
             updateProgress();
             cell.style.cursor = "default";
         }
-
-       
-        
         x++;
         if(x>15) {
             x=0;
@@ -106,7 +106,7 @@ function createGrid() {
 function changePage(puzzle_number) {
     loaded_puzzle = puzzle_number;
     localStorage.setItem('colorByNumbers_Puzzle',loaded_puzzle);
-    selected_color = '';
+    setSelectedColor('');
     createGrid();
 }
 
@@ -131,35 +131,35 @@ function createPuzzleList() {
 //go through the set of current colors and assign each one a number
 //set the text content of each grid cell to the correct number
 //finally, create a button for each color
-function createColorList(current_storage) {
-    let color_numbers = [...current_colors];
-    for(let y=0;y<16;y++) {
-        for(let x=0;x<16;x++) {
-            const cell = document.querySelector(`#cell-${x}-${y}`);
-            if(current_storage[convertCoordsToIndex(x,y)] == '0') { //set cell's text content only if that cell hasn't been clicked
-                cell.textContent = (color_numbers.indexOf(cell.dataset.c)+1);
-            }
-        }
-    }
+// function createColorList(current_storage) {
+//     let color_numbers = [...current_colors];
+//     for(let y=0;y<16;y++) {
+//         for(let x=0;x<16;x++) {
+//             const cell = document.querySelector(`#cell-${x}-${y}`);
+//             if(current_storage[convertCoordsToIndex(x,y)] == '0') { //set cell's text content only if that cell hasn't been clicked
+//                 cell.textContent = (color_numbers.indexOf(cell.dataset.c)+1);
+//             }
+//         }
+//     }
 
-    const container = document.querySelector("#color-selector");
-    container.innerHTML = ""; //clear the previous buttons
-    for(let i = 0; i<color_numbers.length; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = (i+1);
-        btn.dataset.c = color_numbers[i];
+//     const container = document.querySelector("#color-selector");
+//     container.innerHTML = ""; //clear the previous buttons
+//     for(let i = 0; i<color_numbers.length; i++) {
+//         const btn = document.createElement('button');
+//         btn.textContent = (i+1);
+//         btn.dataset.c = color_numbers[i];
         
-        btn.style.backgroundColor = btn.dataset.c;
-        btn.style.color = getContrastColor(color_numbers[i]);
-        btn.id = `color-selector-${i}`;
-        btn.dataset.index = i;
-        btn.addEventListener("click", () => {
-            switchColor(btn);
-        });
-        container.appendChild(btn);
+//         btn.style.backgroundColor = btn.dataset.c;
+//         btn.style.color = getContrastColor(color_numbers[i]);
+//         btn.id = `color-selector-${i}`;
+//         btn.dataset.index = i;
+//         btn.addEventListener("click", () => {
+//             switchColor(btn);
+//         });
+//         container.appendChild(btn);
 
-    }
-}
+//     }
+// }
 
 
 //draw the given image to the hidden canvas and return the pixel data (rgba colors)
@@ -191,37 +191,37 @@ function buttonClick(button) {
 
 
 //switches the currently selected color to the color of the selector button that was just pressed
-function switchColor(button) {
-   const color_selectors = document.querySelectorAll("#color-selector button")
-    for(let c of color_selectors) {
-        if(c.classList.contains("selected")) {
-            c.classList.remove("selected")
-        }
-    }
-    selected_color = button.dataset.c;
-    button.classList.add("selected");
-}
+// function switchColor(button) {
+//    const color_selectors = document.querySelectorAll("#color-selector button")
+//     for(let c of color_selectors) {
+//         if(c.classList.contains("selected")) {
+//             c.classList.remove("selected")
+//         }
+//     }
+//     selected_color = button.dataset.c;
+//     button.classList.add("selected");
+// }
 
 
 //takes in a string for an rgba color and returns the best text color to use ontop of that background
 //this is used for the color selecting buttons on the sidebar
-function getContrastColor(rgbaColor) {
-    let parse_string = rgbaColor.substring(5,rgbaColor.length-1);
-    parse_string = parse_string.split(",");
+// function getContrastColor(rgbaColor) {
+//     let parse_string = rgbaColor.substring(5,rgbaColor.length-1);
+//     parse_string = parse_string.split(",");
 
-    //find the perceived brightness value
-    brightness = Math.sqrt((parse_string[0]*parse_string[0]*.241)+(parse_string[1]*parse_string[1]*.691)+(parse_string[2]*parse_string[2]*.068));
-    if(brightness>130) {
-        return 'rgba(0,0,0,1)';
-    } else {
-        return 'rgba(255,255,255,1)';
-    }
-}
+//     //find the perceived brightness value
+//     brightness = Math.sqrt((parse_string[0]*parse_string[0]*.241)+(parse_string[1]*parse_string[1]*.691)+(parse_string[2]*parse_string[2]*.068));
+//     if(brightness>130) {
+//         return 'rgba(0,0,0,1)';
+//     } else {
+//         return 'rgba(255,255,255,1)';
+//     }
+// }
 
 //converts a cell's x and y coordinates into a 0-255 index for use with the localstorage strings
-function convertCoordsToIndex(x,y) {
-    return (y*16)+x;
-}
+// function convertCoordsToIndex(x,y) {
+//     return (y*16)+x;
+// }
 
 //returns the local storage string for the currently selected puzzle
 function loadStorage() {
@@ -239,7 +239,7 @@ function setStorage(item) {
 
 //create a string in storage for the currently selected puzzle
 function createStorage() {
-    current_data = '0';
+    let current_data = '0';
     current_data = current_data.repeat(256);
     localStorage.setItem(`colorByNumbers_${puzzles[loaded_puzzle].id}`,current_data);
     return current_data;

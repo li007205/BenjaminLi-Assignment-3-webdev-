@@ -1,5 +1,8 @@
+import { getContrastColor, convertCoordsToIndex } from "./utilities.js";
 
-let current_colors = new Set(); //set of rgba color strings in the loaded image
+export let current_colors = new Set(); //set of rgba color strings in the loaded image
+export let selected_color = '';
+
 export function createColorList(current_storage) {
     let color_numbers = [...current_colors];
     for(let y=0;y<16;y++) {
@@ -29,7 +32,9 @@ export function createColorList(current_storage) {
 
     }
 }
-function switchColor(button) {
+
+
+export function switchColor(button) {
    const color_selectors = document.querySelectorAll("#color-selector button")
     for(let c of color_selectors) {
         if(c.classList.contains("selected")) {
@@ -38,4 +43,8 @@ function switchColor(button) {
     }
     selected_color = button.dataset.c;
     button.classList.add("selected");
+}
+
+export function setSelectedColor(val) {
+    selected_color=val;
 }
