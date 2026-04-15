@@ -1,5 +1,3 @@
-
-
 export function getContrastColor(rgbaColor) {
     let parse_string = rgbaColor.substring(5,rgbaColor.length-1);
     parse_string = parse_string.split(",");

@@ -3,6 +3,9 @@ import { getContrastColor, convertCoordsToIndex } from "./utilities.js";
 export let current_colors = new Set(); //set of rgba color strings in the loaded image
 export let selected_color = '';
 
+//go through the set of current colors and assign each one a number
+//set the text content of each grid cell to the correct number
+//finally, create a button for each color
 export function createColorList(current_storage) {
     let color_numbers = [...current_colors];
     for(let y=0;y<16;y++) {
