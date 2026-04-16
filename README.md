@@ -2,7 +2,9 @@ Assignment2.js
 Only 1 javascript file
 The file does all the coloring, grid, settings and etc.
 <br>
-<img width="360" height="810" alt="original assignment2" src="https://github.com/user-attachments/assets/1eca1acf-279d-4b83-ba02-e8cb6ebfbde6" />
+
+<img width="360" height="810" alt="original assignment2(1)" src="https://github.com/user-attachments/assets/b7d4c5a7-af74-414d-b063-a0b1ba0a01ca" />
+
 <br>
 <img width="780" height="948" alt="modularized assignment2(2)" src="https://github.com/user-attachments/assets/0f87afae-3047-4e54-b57b-3354f10c7224" />
 
