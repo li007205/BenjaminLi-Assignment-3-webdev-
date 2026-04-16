@@ -1,4 +1,5 @@
-<strong>Task1</strong>
+<strong><font size="30">Task1</font></strong>
+<br>
 Assignment2.js 
 Only 1 javascript file
 The file does all the coloring, grid, settings and etc.
