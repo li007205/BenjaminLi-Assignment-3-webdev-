@@ -1,5 +1,6 @@
 
 <img width="360" height="810" alt="original assignment2" src="https://github.com/user-attachments/assets/1eca1acf-279d-4b83-ba02-e8cb6ebfbde6" />
+<br>
 Assignment2.js 
 
     SetTitle 
