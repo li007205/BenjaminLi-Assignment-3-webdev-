@@ -1,4 +1,4 @@
-<font size="30"><strong>Task1</strong></font>
+Task1:
 <br>
 Assignment2.js 
 Only 1 javascript file
