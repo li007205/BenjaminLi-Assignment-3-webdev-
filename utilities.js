@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {string[]} rgbaColor - string of colors
+ * @returns {string} string of black and white
+ */
 export function getContrastColor(rgbaColor) {
     let parse_string = rgbaColor.substring(5,rgbaColor.length-1);
     parse_string = parse_string.split(",");
@@ -10,6 +15,12 @@ export function getContrastColor(rgbaColor) {
         return 'rgba(255,255,255,1)';
     }
 }
+/**
+ * 
+ * @param {number} x 
+ * @param {number} y 
+ * @returns {number} number for index
+ */
 
 export function convertCoordsToIndex(x,y) {
     return (y*16)+x;

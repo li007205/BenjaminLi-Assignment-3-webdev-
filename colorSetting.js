@@ -1,4 +1,11 @@
+/**
+setting to change the color of the background site with 3 options
 
+@param {number} index - palatte index
+0: default_palatte
+1: light_palatte
+2: dark_palatte
+*/
 export function changePalette(index) {
     localStorage.setItem('colorByNumbers_Palette',index);
     const s = document.documentElement.style;

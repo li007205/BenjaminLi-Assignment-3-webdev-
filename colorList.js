@@ -1,11 +1,22 @@
 import { getContrastColor, convertCoordsToIndex } from "./utilities.js";
-
+/**
+creating a set of colors strings
+@type {Set<string>}
+*/
 export let current_colors = new Set(); //set of rgba color strings in the loaded image
+/**
+setting an empty color
+@type {string}
+*/
 export let selected_color = '';
 
 //go through the set of current colors and assign each one a number
 //set the text content of each grid cell to the correct number
 //finally, create a button for each color
+/**
+creating a list for colors buttons
+@param {string} current_storage - pull color string from local storage
+*/
 export function createColorList(current_storage) {
     let color_numbers = [...current_colors];
     for(let y=0;y<16;y++) {
@@ -36,7 +47,10 @@ export function createColorList(current_storage) {
     }
 }
 
-
+/**
+*update the selected cell to a new color
+*@param {HTMLButtonElement} button - button is clicked
+*/
 export function switchColor(button) {
    const color_selectors = document.querySelectorAll("#color-selector button")
     for(let c of color_selectors) {
@@ -47,7 +61,10 @@ export function switchColor(button) {
     selected_color = button.dataset.c;
     button.classList.add("selected");
 }
-
+/**
+ * set value to track selected color
+ * @param {string} val - The color value or hex code to be set as active.
+ */
 export function setSelectedColor(val) {
     selected_color=val;
 }
