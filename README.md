@@ -76,5 +76,6 @@ ColorSetting.js:
 
     Moved and export changePalette  
 
+    Moved dialog, dialogBtn, setting, default_palatte, light_palatte, dark_palatte 
 
-    
+    Allow the user to change into 3 color settings for the background of the site 
