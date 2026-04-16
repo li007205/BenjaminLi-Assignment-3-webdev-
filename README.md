@@ -1,4 +1,4 @@
-Task1:
+Task 1:
 <br>
 Assignment2.js 
 Only 1 javascript file
@@ -39,6 +39,8 @@ Utility module: accessibility and other features.
 
     ConvertCoordsToIndex 
 
+<br>
+Task 2:
 <br>
 
 Assignment2.js: 
