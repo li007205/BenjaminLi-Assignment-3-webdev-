@@ -4,7 +4,8 @@ The file does all the coloring, grid, settings and etc.
 <br>
 <img width="360" height="810" alt="original assignment2" src="https://github.com/user-attachments/assets/1eca1acf-279d-4b83-ba02-e8cb6ebfbde6" />
 <br>
-<img width="1340" height="940" alt="modularized assignment2(1)" src="https://github.com/user-attachments/assets/c4abb22b-af9f-4a56-8aa4-bf3d7c04cf9e" />
+<img width="780" height="948" alt="modularized assignment2(2)" src="https://github.com/user-attachments/assets/0f87afae-3047-4e54-b57b-3354f10c7224" />
+
 <br>
 modules of some sort of list functions, setting modules and utilities module.  
 
