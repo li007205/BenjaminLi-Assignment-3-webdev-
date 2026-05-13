@@ -7,7 +7,7 @@
 
 
 
-Task 1:
+<!--Task 1:
 <br>
 Assignment2.js 
 Only 1 javascript file
@@ -95,3 +95,4 @@ ColorSetting.js:
     Moved dialog, dialogBtn, setting, default_palatte, light_palatte, dark_palatte 
 
     Allow the user to change into 3 color settings for the background of the site 
+-->
