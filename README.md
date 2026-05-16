@@ -10,7 +10,7 @@ It's a coloring game pixel by pixel. The player colors in a picture that the gam
 - players can color all the canvas until completion
 
 # Installation Instructions
-It a normal a HTML, CSS and Javascript. Any computer that can run these 3.  
+It a basic HTML, CSS and Javascript. Any computer that can run these 3.  
 
 
 
