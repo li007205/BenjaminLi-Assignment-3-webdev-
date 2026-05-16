@@ -1,9 +1,16 @@
 # Overview
+It's a coloring game pixel by pixel. The player colors in a picture that the game want them to do. 
 
 # Usage Instructions
+- single player
+- player can choose between multiple canvas to color
+- each color has number that matches the numbers on the canvas to show want needs to be matched
+- the canvas can be reset on the top right
+- player can can progress for each canvas
+- players can color all the canvas until completion
 
 # Installation Instructions
-
+It a normal a HTML, CSS and Javascript. Any computer that can run these 3.  
 
 
 
